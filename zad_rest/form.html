@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather</title>
+</head>
+<body>
+    <form method=GET action="/weather">
+        <label for="city">City:</label>
+        <input id="city" name="city" placeholder="Enter a city (in English)..." required/>
+
+        <label for="days">Amount of days forward:</label>
+        <input id="days" name="days" type="number" min="1" max="5" value="3" placeholder="Enter amount of days to forecast..." required/>
+
+        <button type="submit">Fetch</button>
+    </form>
+    {% if error %}
+        <p>{{ error }}</p>
+    {% endif %}
+</body>
+</html>

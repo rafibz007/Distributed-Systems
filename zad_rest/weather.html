@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather</title>
+</head>
+<body>
+    <p>Weather forecast for {{ city }} for {{ days }} days</p>
+    <br>
+    <p>Weather forecast collected from {{ services_amount }} services</p>
+    <p>City fetching failures: {{ city_fetch_errors }}</p>
+    <p>Weather forecast fetching failures: {{ weather_fetch_errors }}</p>
+
+    {% for forecast in weather_forecasts %}
+        <br>
+        <p>Day: {{ forecast.date }}</p>
+        <p>(Data from {{ forecast.contributed_services_amount }} APIs)</p>
+        <p>Temperature: {{ forecast.avg_temperature }} (Standard Error: {{ forecast.stderr_temperature }})</p>
+        <p>Min Temperature: {{ forecast.avg_min_temperature }} (Standard Error: {{ forecast.stderr_min_temperature }})</p>
+        <p>Max Temperature: {{ forecast.avg_max_temperature }} (Standard Error: {{ forecast.stderr_max_temperature }})</p>
+    {% endfor %}
+</body>
+</html>
